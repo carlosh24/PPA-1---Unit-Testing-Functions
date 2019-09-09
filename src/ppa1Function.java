@@ -2,8 +2,10 @@
 public class ppa1Function {
 	
 	public double[] splitTheTip(double dinnerAmmount, int guestNumb) {
-	  
-	   return null;
+		double total = dinnerAmmount * 1.15;
+		double evenSplit = total / guestNumb;
+		double[] answer = {evenSplit, 0.0};
+		return answer;
 	}
 	
 	public String bodymass(int inches, int feet) {
