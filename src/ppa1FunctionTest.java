@@ -95,6 +95,28 @@ class ppa1FunctionTest {
 		assertEquals(testResult2, test.shortestDistance(-1.0, -2.0, -3.0, 4.0),
 				"The distance should be 6.3246 with 4 dp of precision");
 	}
+	
+	/* TESTS FOR BMI */
+	
+	@Test
+	public void BMIBadInputTest() {
+		assertEquals("weightless", test.bodymass(4,4,25),
+				"The weight is must be above 30 or else they are wightless");
+		assertEquals("heightless", test.bodymass(1,11,140),
+				"The height is must be above 24 inches or else they are wightless");
+	}
+	
+	@Test
+	public void BMITestAllWeightCategories() {
+		assertEquals("Normal Weight|22.68", test.bodymass(5,3,125),
+				"5 ft 3 at 125 lbs is normal weight with BMI 22.68");
+		assertEquals("Underweight|15.62", test.bodymass(4,0,50),
+				"4 ft 0 at 50 lbs is under weight with BMI 15.63");
+		assertEquals("Overweight|29.93", test.bodymass(5,3,165),
+				"5 ft 3 at 165 lbs is overweight with BMI 29.93");
+		assertEquals("Obese|52.48", test.bodymass(4,7,220.5),
+				"4 ft 7 at 220.5 lbs is Obese with BMI 52.48");
+	}
 
 	/* TESTS FOR Retirement Plan */
 	@Test

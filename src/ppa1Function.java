@@ -24,9 +24,35 @@ public class ppa1Function {
 		return dist;
 	}
 
-	public String bodymass(int inches, int feet) {
+	public String bodymass(int feet, int inches, double weight) {
+		double kilos = weight * 0.45;
+		double totalInches = feet * 12 + inches;
+		double meters = totalInches * 0.025;
 
-		return null;
+		// check edge cases
+		if (weight <= 30)
+			return "weightless";
+		else if (totalInches <= 24)
+			return "heightless";
+
+		// calculate BMI
+		double bmi = kilos / Math.pow(meters, 2);
+		// round to 2 decimal places
+		int bmiInt = (int) Math.round(bmi * 100);
+		bmi = bmiInt / 100.0;
+
+		// turn into our return string
+		String retString = "";
+		if (bmi <= 18.5)
+			retString = "Underweight|" + bmi;
+		else if (bmi < 25)
+			retString = "Normal Weight|" + bmi;
+		else if (bmi < 30)
+			retString = "Overweight|" + bmi;
+		else
+			retString = "Obese|" + bmi;
+
+		return retString;
 
 	}
 
