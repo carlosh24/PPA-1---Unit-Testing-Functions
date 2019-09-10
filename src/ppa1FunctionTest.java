@@ -66,8 +66,7 @@ class ppa1FunctionTest {
 		double testResult2 = 2.0;
 		assertEquals(testResult1, test.shortestDistance(0.0, 0.0, 1.0, 0.0),
 				"The distance from the origin to 1,0 is 1");
-		assertEquals(testResult2, test.shortestDistance(1.0, 1.0, 1.0, 3.0),
-				"The distance from 1,1 to 1,3 is 2");
+		assertEquals(testResult2, test.shortestDistance(1.0, 1.0, 1.0, 3.0), "The distance from 1,1 to 1,3 is 2");
 	}
 
 	@Test
@@ -79,16 +78,14 @@ class ppa1FunctionTest {
 		assertEquals(testResult2, test.shortestDistance(4.23, 5.14, 6.63, 66.0),
 				"The distance should be 60.9073 with 4 dp of precision");
 	}
-	
+
 	@Test
 	public void SamePointTest() {
 		double testResult = 0;
-		assertEquals(testResult, test.shortestDistance(1.7586, 2.456, 1.7586, 2.456),
-				"The distance should be 0");
-		assertEquals(testResult, test.shortestDistance(4.1234, 1.1111, 4.1234, 1.1111),
-				"The distance should be 0");
+		assertEquals(testResult, test.shortestDistance(1.7586, 2.456, 1.7586, 2.456), "The distance should be 0");
+		assertEquals(testResult, test.shortestDistance(4.1234, 1.1111, 4.1234, 1.1111), "The distance should be 0");
 	}
-	
+
 	@Test
 	public void NegativePointsTest() {
 		double testResult1 = 30.016;
@@ -98,32 +95,36 @@ class ppa1FunctionTest {
 		assertEquals(testResult2, test.shortestDistance(-1.0, -2.0, -3.0, 4.0),
 				"The distance should be 6.3246 with 4 dp of precision");
 	}
-	/* Test for Retirement Plan */
+
+	/* TESTS FOR Retirement Plan */
 	@Test
 	public void BadInputForRetirementTest() {
-		
-		assertEquals(-1,test.retirementAge(0, 15, 10, 20),"The retirement age is suppose to be bigger than 16");
+		assertEquals(-1, test.retirementAge(0, 15, 10, 20), "The retirement age is suppose to be bigger than 16");
+		assertEquals(-2, test.retirementAge(17, 0, 10, 20), "The Annual Salary has to be greater than 0");
+		assertEquals(-3, test.retirementAge(18, 17, 0, 20), "The percent saved is suppose to be bigger than 0");
+		assertEquals(-4, test.retirementAge(18, 21, 15, -1), "The goal cannot be lower than 0 dollars");
+		assertEquals(19, test.retirementAge(19, 15, 15, 0),
+				"If the goal is 0 is already met so we return the currrent Age");
 
-		assertEquals(-2,test.retirementAge(17, 0, 10, 20),"The Annual Salary has to be greater than 0");
-
-		assertEquals(-3,test.retirementAge(18, 17, 0, 20), "The percent saved is suppose to be bigger than 0");
-
-		assertEquals(-4,test.retirementAge(18, 21, 15, -1),"The goal cannot be lower than 0 dollars");
-	
-		assertEquals(19,test.retirementAge(19, 15, 15, 0),"If the goal is 0 is already met so we return the currrent Age");
-		
 	}
+
 	@Test
 	public void BasicRetirementTest() {
-
-		assertEquals(45,test.retirementAge(40, 20000, 1, 1300));
-		assertEquals(55,test.retirementAge(35, 45000, 2, 24000));
-		assertEquals(100,test.retirementAge(70, 50000, 3, 60000));
+		assertEquals(45, test.retirementAge(40, 20000, 1, 1300),
+				"It should take 5 years to retire when saving 1 percent of 20000 with a 1300 goal with 35% company matching");
+		assertEquals(55, test.retirementAge(35, 45000, 2, 24000),
+				"It should take 20 years to retire when saving 2 percent of 45000 with a 24000 goal with 35% company matching");
+		assertEquals(100, test.retirementAge(70, 50000, 3, 60000),
+				"It should take 30 years to retire when saving 3 percent of 50000 with a 60000 goal with 35% company matching");
 	}
+
 	@Test
 	public void DeathRetirementTest() {
-		assertEquals(101,test.retirementAge(35, 45000, 2, 240000));
-		assertEquals(101,test.retirementAge(16, 15000, 0.1, 20000));
-		assertEquals(101,test.retirementAge(25, 20000, 0.5, 100000));
+		assertEquals(101, test.retirementAge(35, 45000, 2, 240000),
+				"At this age, salary, saving rate, and goal they should never retire (age of 101)");
+		assertEquals(101, test.retirementAge(16, 15000, 0.1, 20000),
+				"At this age, salary, saving rate, and goal they should never retire (age of 101)");
+		assertEquals(101, test.retirementAge(25, 20000, 0.5, 100000),
+				"At this age, salary, saving rate, and goal they should never retire (age of 101)");
 	}
 }
