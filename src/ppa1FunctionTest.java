@@ -29,4 +29,18 @@ class ppa1FunctionTest {
 		assertArrayEquals(test.splitTheTip(13.00, 4),testResult1,"13.00 + 1.95 tip divided by 4 people should be 3.73 per guest with 0.03 remainder");
 		assertArrayEquals(test.splitTheTip(100, 9),testResult2, "100.00 + 15.00  tip divided by 9 people should be 12.77 per guest with 0.07 remainder");
 	}
+	@Test
+	public void zeroTest() {
+		double []testResults = {-1, -1};
+		double []testResults2 = {0, 0};
+		assertArrayEquals(test.splitTheTip(15, 0), testResults, "it should return -1 so it shows that there is no guests. It prevents an error of dividing by 0");
+		assertArrayEquals(test.splitTheTip(0.0,2), testResults2, "0 + 0  tip divided by 2 people should be 0 per guest ");
+	}
+	@Test
+	public void typeTest() {
+		double[] t;
+		t = test.splitTheTip(10, 2);
+		assertTrue(t instanceof double[]);
+		assertTrue(t.length==2);
+	}
 }
