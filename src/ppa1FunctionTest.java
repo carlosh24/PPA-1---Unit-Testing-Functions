@@ -98,4 +98,32 @@ class ppa1FunctionTest {
 		assertEquals(testResult2, test.shortestDistance(-1.0, -2.0, -3.0, 4.0),
 				"The distance should be 6.3246 with 4 dp of precision");
 	}
+	/* Test for Retirement Plan */
+	@Test
+	public void BadInputForRetirementTest() {
+		
+		assertEquals(-1,test.retirementAge(0, 15, 10, 20),"The retirement age is suppose to be bigger than 16");
+
+		assertEquals(-2,test.retirementAge(17, 0, 10, 20),"The Annual Salary has to be greater than 0");
+
+		assertEquals(-3,test.retirementAge(18, 17, 0, 20), "The percent saved is suppose to be bigger than 0");
+
+		assertEquals(-4,test.retirementAge(18, 21, 15, -1),"The goal cannot be lower than 0 dollars");
+	
+		assertEquals(19,test.retirementAge(19, 15, 15, 0),"If the goal is 0 is already met so we return the currrent Age");
+		
+	}
+	@Test
+	public void BasicRetirementTest() {
+
+		assertEquals(45,test.retirementAge(40, 20000, 1, 1300));
+		assertEquals(55,test.retirementAge(35, 45000, 2, 24000));
+		assertEquals(100,test.retirementAge(70, 50000, 3, 60000));
+	}
+	@Test
+	public void DeathRetirementTest() {
+		assertEquals(101,test.retirementAge(35, 45000, 2, 240000));
+		assertEquals(101,test.retirementAge(16, 15000, 0.1, 20000));
+		assertEquals(101,test.retirementAge(25, 20000, 0.5, 100000));
+	}
 }

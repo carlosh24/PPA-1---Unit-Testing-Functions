@@ -31,8 +31,35 @@ public class ppa1Function {
 	}
 
 	public int retirementAge(int currentAge, double AnnualSalary, double prcntSaved, double goal) {
-
-		return 0;
-
+	
+		if(currentAge<=15 || currentAge>99) {
+			return -1;
+		}
+		else if(AnnualSalary<=0) {
+			return -2;
+		}
+		else if(prcntSaved<=0) {
+			return -3;
+		}
+		else if(goal==0) {
+			return currentAge;
+		}
+		else if(goal<0) {
+			return -4;
+		}
+		
+		int iceAge=currentAge;
+		double total=0.0;
+		do {
+			total+=(AnnualSalary* (prcntSaved/100))*1.35;
+			int temp= (int)(Math.round(total*100.0));
+			total= temp/100.0;
+			iceAge++;
+			if(total>=goal) {
+				break;
+			}
+		}while(iceAge<=100);
+	
+		return iceAge;
 	}
 }
