@@ -17,8 +17,8 @@ public class ppa1Interface {
 			System.out.println("Please enter the number for which function you would like to use.");
 			System.out.println("1. Split the Tip");
 			System.out.println("2. Shortest Distance");
-			System.out.println("3. Body Mass Index");
-			System.out.println("4. Retirement Age");
+			System.out.println("3. Retirement Age");
+			System.out.println("4. Body Mass Index");
 			System.out.println("5. Exit");
 			selection = in.nextInt();
 
@@ -51,13 +51,13 @@ public class ppa1Interface {
 						+ ret + ".\n");
 			} else if (selection == 3) {
 				System.out.println("\nYou have selected Retirement Age Calculator.");
-				System.out.println("Enter your current age: ");
+				System.out.print("Enter your current age: ");
 				int age = in.nextInt();
-				System.out.println("Enter your annual salary: ");
+				System.out.print("Enter your annual salary: ");
 				double sal = in.nextDouble();
-				System.out.println("Enter the percentage saved (as a percent not decimal): ");
+				System.out.print("Enter the percentage saved (as a percent not decimal): ");
 				double percent = in.nextDouble();
-				System.out.println("Enter your savings goal: ");
+				System.out.print("Enter your savings goal: ");
 				double goal = in.nextDouble();
 				double ret = ppa1.retirementAge(age, sal, percent, goal);
 
@@ -76,6 +76,25 @@ public class ppa1Interface {
 					System.out.println("You will meet your retirement goal at the age of " + ret + ".\n");
 
 			} else if (selection == 4) {
+				System.out.println("\nYou have selected Body Mass Index.");
+				System.out.print("Enter your height in feet: ");
+				int feet = in.nextInt();
+				System.out.print("Enter your height in inches: ");
+				int inches = in.nextInt();
+				System.out.print("Enter your weight in pounds: ");
+				double lbs = in.nextDouble();
+				String ret = ppa1.bodymass(feet, inches, lbs);
+
+				// Parse return string
+				if (ret.equals("weightless"))
+					System.out.println("You must enter a weight over or equal to 30 pounds.\n");
+				else if (ret.equals("heightless"))
+					System.out.println("You must enter a height over or equal to 2 feet.\n");
+				else {
+					int parseIndex = ret.indexOf('|');
+					System.out.println("Your BMI is " + ret.substring(parseIndex + 1) + " which is considered "
+							+ ret.substring(0, parseIndex) + ".\n");
+				}
 
 			} else if (selection != 5) {
 				System.out.println("Please enter a valid option.\n");
