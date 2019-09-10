@@ -61,6 +61,6 @@ class ppa1FunctionTest {
 		double testResult1 = 2.7080;
 		double testResult2 = 60.9073;
 		assertEquals(test.shortestDistance(3.12, 4.67, 1.5, 2.5),testResult1,"The distance should be 2.7080 with 4 dp of precision");
-		assertEquals(test.shortestDistance(4.23, 5.14, 6.63, 66.0),testResult1,"The distance should be 60.9073 with 4 dp of precision");
+		assertEquals(test.shortestDistance(4.23, 5.14, 6.63, 66.0),testResult2,"The distance should be 60.9073 with 4 dp of precision");
 	}
 }

@@ -30,6 +30,8 @@ public class ppa1Function {
 	
 	public double shortestDistance(double x1, double y1, double x2, double y2) {
 		double dist = Math.sqrt(Math.pow((x2-x1), 2) + Math.pow(y2-y1, 2));
+		int distInt= (int)(dist*10000);		//cast as an int savings 4 decimal places
+		dist= distInt/10000.0;				// make it back into a double
 		return dist;
 	}
 }
