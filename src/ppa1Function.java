@@ -1,11 +1,11 @@
-
 public class ppa1Function {
 	
 	public double[] splitTheTip(double dinnerAmmount, int guestNumb) {
-		double total = dinnerAmmount * 1.15;
-		double evenSplit = total / guestNumb;
-		evenSplit= Math.round(evenSplit * 100.0) / 100.0; //Rounds the total after tip to the nearest 2 decimal place.
-		double[] answer = {evenSplit, 0.0};
+		double total = dinnerAmmount * 1.15;				//adds the tip to the bill
+		total = Math.round(total * 100.0) / 100.0;			//Rounds the total after tip to the nearest 2 decimal place.
+		int splitInt = (int) (total / guestNumb * 100.0);	//cast as int to remove floating point error
+		double split = splitInt / 100.0;					//turn back into a double
+		double[] answer = {split, 0.0};						//create a return array with the answer
 		return answer;
 	}
 	
