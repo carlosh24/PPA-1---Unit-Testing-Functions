@@ -5,7 +5,9 @@ public class ppa1Function {
 		total = Math.round(total * 100.0) / 100.0;			//Rounds the total after tip to the nearest 2 decimal place.
 		int splitInt = (int) (total / guestNumb * 100.0);	//cast as int to remove floating point error
 		double split = splitInt / 100.0;					//turn back into a double
-		double[] answer = {split, 0.0};						//create a return array with the answer
+		int remainderInt= (int) ((total*100) % guestNumb );  // get the remainder in form of an int
+		double remainder= remainderInt/100.0;					//makes the remainder back to a double to an double with only 2 decimals
+		double[] answer = {split, remainder};						//create a return array with the answer
 		return answer;
 	}
 	
