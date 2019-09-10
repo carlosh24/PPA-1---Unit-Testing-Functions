@@ -57,3 +57,18 @@ and the only available option should be Junit Test.
 
 6. Finally you can see the code coverage by having the ppa1FunctionTest.java window open and going to
 Run -> Coverage As -> Junit test
+
+TDD Experience:
+	- Carlos A. Henriquez Urena: 
+My experience with unit testing has been pleasent because i feel 
+like doing this testing makes us see what edge cases and more possible outcomes that can happen in our code.
+My TDD experience was pleasent but i still prefer coding before testing  since it feels much faster.
+But TDD is a really good implementation to make sure your code is working well. The benefits of tdd is less buggy code, 
+better understanding on the ways our code is suppose to work or what could make it fail. The drawbacks of TDD are that is a slower process fo coding. 
+In my opinion thats my only drawback of TDD. 
+
+	- Adam Wood:
+
+	
+
+
